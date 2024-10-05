@@ -1,6 +1,6 @@
 // Retrieve tasks and nextId from localStorage
-let taskList = JSON.parse(localStorage.getItem("tasks"));
-let nextId = JSON.parse(localStorage.getItem("nextId"));
+let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
+let nextId = JSON.parse(localStorage.getItem("nextId")) || 1;
 
 // Todo: create a function to generate a unique task id 
 function generateTaskId() {
@@ -22,8 +22,32 @@ function createTaskCard(task) {
 }
 
 // Todo: create a function to render the task list and make cards draggable
-function renderTaskList() {
+//https://www.w3schools.com/jquery/event_preventdefault.asp
+//https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
 
+function renderTaskList(event) {
+    event.preventDefault();
+
+    const taskTitle = $("#task-title").val();
+    const taskDescription = $("#task-desc").val();
+    const taskDeadline = $("#task-deadline").val();
+
+    if (taskTitle && taskDescription && taskDeadline) {
+        const newTask = {
+            id: generateTaskId(),
+            title: taskTitle,
+            description: taskDescription,
+            deadline: taskDeadline,
+            status: "to-do" // need to default to status
+        };
+
+        taskList.push(newTask);
+        localStorage.setItem("tasks", JSON.stringify(taskList));
+        localStorage.setItem("nextId", nextId);
+
+        renderTaskList(); //render the task list with the new task
+        $('#formModal').modal('hide'); // Close the modal after task is added
+    }
 }
 
 // Todo: create a function to handle adding a new task
