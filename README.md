@@ -1,55 +1,52 @@
-# taskboard
-Challenge 5
-Task Board Project Notes
+# **Task Board Project**
 
- Set Up the Task Board Layout
-Columns: Need to create three columns labeled Not Yet Started, In Progress, and Completed for organizing tasks based on progress.
+## **Challenge 5**
 
-Add New Tasks
-Modal: Add an “Add Task” button that opens a modal where users can input:
-Task title
-Task description
-Deadline (date input)
-Save to localStorage: Ensure when I click Save, the task’s info (title, description, deadline) is stored in localStorage to persist after refresh.
+### **Project Overview**
 
-Task Color Coding
-Use Day.js to calculate and color code tasks:
-Yellow: Near the deadline.
-Red: Overdue.
+This project is a simple task board (Kanban-style) application for task management using **HTML**, **CSS**, **JavaScript**, and the **Day.js** library. Tasks can be organized in three columns, and users can manage tasks by adding, dragging between progress states, and deleting tasks.
 
-Enable Drag-and-Drop
-Drag-and-Drop: Implement a system where tasks can be dragged between columns.
-Save Progress: Ensure that when I move a task to another column, its state updates and this change is saved in localStorage for persistence.
+### **Features**
 
-Delete Functionality
-Delete Button: Add a delete button to each task. When clicked, it should remove the task from the board.
-Remove from localStorage: Make sure the task is also deleted from localStorage, so it’s gone for good after refreshing the page.
+1. **Set Up the Task Board Layout**
+   - Columns: Create three columns labeled **Not Yet Started**, **In Progress**, and **Completed** to organize tasks based on their progress.
 
-Task Persistence
-Load Tasks from localStorage: When the page is loaded, fetch and display any tasks saved in localStorage in their appropriate columns.
+2. **Add New Tasks**
+   - Modal: Add an **"Add Task"** button that opens a modal where users can input:
+     - **Task Title**
+     - **Task Description**
+     - **Deadline** (date input)
+   - Save to **localStorage**: Ensure that when the user clicks **Save**, the task's info (title, description, deadline) is stored in localStorage
 
-Deployment
-Deploy: Make sure the app is deployed to a live server (GitHub Pages, Netlify, Render, etc.). Test that it works without errors.
+3. **Task Color Coding**
+   - Use **Day.js** to calculate and color code tasks:
+     - **Red**: Past due.
+     - **Yellow**: Today dues.
+     - **Default**: Future tasks.
 
-GitHub Repository
-Unique Repo Name: Create a unique repo name related to the project.
-Best Practices:
-Keep file and folder structures organized and logical.
-Follow proper naming conventions for classes and IDs.
-Maintain consistent indentation and leave quality comments in the code.
-Commit Messages: Use clear, descriptive commit messages to track progress (e.g., “Added drag-and-drop functionality”).
-README: Write a solid README including:
-Project description.
-Screenshot of the task board.
-Link to the live deployed app.
-Installation instructions (if necessary).
+4. **Enable Drag-and-Drop**
+   - Implement a system where tasks can be dragged between columns.
+   - Save task progress so that tasks remain in the updated after refreshing the page.
 
-Key Tasks
-Create task board layout with three columns for progress.
-Build modal for adding new tasks and save tasks to localStorage.
-Use Day.js for task deadline color coding.
-Implement drag-and-drop for moving tasks between columns and saving the updated state.
-Add delete button to tasks and remove them from both the board and localStorage.
-Ensure task persistence across page reloads.
-Deploy the app and ensure it runs error-free on a live server.
-Follow best practices in GitHub repo and commit history, and write a detailed README.
+5. **Delete Functionality**
+   - Add a delete button to each task. The task is removed from both the task board and localStorage.
+
+6. **Task Persistence**
+   - When the page loads, fetch and display tasks saved in localStorage.
+
+### **Key Tasks**
+- Create task board layout with three columns for task progress.
+- Build a modal for adding new tasks and save tasks to localStorage.
+- Use **Day.js** for task deadline color coding.
+- Implement drag-and-drop functionality for moving tasks between columns and saving the updated state.
+- Add a delete button to tasks and remove tasks from both the board and localStorage.
+
+---
+
+### **Issues**
+- **Task Color Coding**: 
+  - Had difficulties getting the correct color coding to display based on the task deadline. The task board is supposed to show:
+    - **Red** for overdue tasks.
+    - **Yellow** for tasks due today
+    - No color for future tasks.
+  -  **Day.js** and **Bootstrap's** color classes, Bootstrap classes (`bg-danger`, `bg-warning`).
